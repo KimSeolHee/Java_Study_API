@@ -12,13 +12,15 @@ public class StringStudy2 {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		String [] files = {"jpg","png","gif","jpeg"};
+		
 		boolean check = true;
 		while(check) {
 			System.out.println("파일명을 입력해주세요.");
 			String fileName = sc.next();
 			
-			int num = fileName.indexOf(".");
-			String file = fileName.substring(num+1);
+			int index = fileName.lastIndexOf(".");
+			String file = fileName.substring(index+1);
 			System.out.println("확장자 : "+ file);
 			
 			if(file.equals("jpg") || file.equals("png")) {
@@ -33,7 +35,6 @@ public class StringStudy2 {
 			System.out.println("==================================");
 		}
 	}
-	
 	
 	public void studyIndexOfEx1() {
 		String names = "iu,suji,choa,hani";
