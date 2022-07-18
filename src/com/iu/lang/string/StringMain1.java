@@ -39,6 +39,13 @@ public class StringMain1 {
 		System.out.println("===============================");
 		st2.studyIndexOfEx1();
 		
+		System.out.println("\nSubString 호출");
+		ss.studySubString();
+		
+		System.out.println("------------------------------------------------------");
+		st2.ex2();
+		
+		
 	}
 
 }
