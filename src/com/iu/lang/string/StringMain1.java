@@ -25,25 +25,37 @@ public class StringMain1 {
 		System.out.println(str1.equals(str3));
 		
 		
-		StringStudy ss = new StringStudy();
-		ss.studyCharAt();
+//		StringStudy ss = new StringStudy();
+//		ss.studyCharAt();
+//		
+//		System.out.println("==============================");
+//		System.out.println(str1.equals(str2));
+//		System.out.println(str1.equals(str3));
+//		
+//		System.out.println("===============================");
+//		StringStudy2 st2 = new StringStudy2();
+//		st2.studyIndexof();
+//		
+//		System.out.println("===============================");
+//		st2.studyIndexOfEx1();
+//		
+//		System.out.println("\nSubString 호출");
+//		ss.studySubString();
+//		
+//		System.out.println("------------------------------------------------------");
+//		st2.ex2();
 		
-		System.out.println("==============================");
-		System.out.println(str1.equals(str2));
-		System.out.println(str1.equals(str3));
-		
-		System.out.println("===============================");
-		StringStudy2 st2 = new StringStudy2();
-		st2.studyIndexof();
-		
-		System.out.println("===============================");
-		st2.studyIndexOfEx1();
-		
-		System.out.println("\nSubString 호출");
-		ss.studySubString();
 		
 		System.out.println("------------------------------------------------------");
-		st2.ex2();
+		StringStudy3 st3 = new StringStudy3();
+		st3.studySplit();
+		System.out.println("------------------------------------------------------");
+		st3.studySplit2();
+		System.out.println("------------------------------------------------------");
+		st3.studySplit3();
+		
+		
+		
 		
 		
 	}
