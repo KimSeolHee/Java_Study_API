@@ -18,7 +18,7 @@ public class WrapperMain1 {
 		n = 50;
 		integer = new Integer(n);
 		
-		integer = n; //auto-boxing 정수값int를 참조타입으로 바꿔주고
+		integer = n; //auto-boxing 정수값 int를 참조타입으로 바꿔주고
 		n = integer; //auto-unboxing 자동으로 int타입으로 벗겨낸다.
 		
 		long l = 10L;
@@ -40,10 +40,10 @@ public class WrapperMain1 {
 		double n2 = Double.parseDouble(num2);
 		long n3 = Long.parseLong(num3);
 		
-		System.out.println(n1*2);
-		System.out.println(n2*2);
-		System.out.println(n3*2);
-		
+//		System.out.println(n1*2);
+//		System.out.println(n2*2);
+//		System.out.println(n3*2);
+//		
 		
 //		
 //		System.out.println(num+2);
