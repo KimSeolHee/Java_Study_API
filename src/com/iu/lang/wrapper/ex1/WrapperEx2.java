@@ -22,25 +22,31 @@ public class WrapperEx2 {
 
 	public void juminCheck() {
 		
-		String num = "971124-1234560";//sc.next();	
+		String num = "971124-1234562";//sc.next();	
 		String nums = num.replace("-", "");
 		System.out.println(nums);
 		
-		int a = 0;
-		
+		int total = 0;
+		int newCount=2;
 		for(int i = 0;i<nums.length();i++) {
 			
 			char count = nums.charAt(i);
 			String counts = String.valueOf(count);
 			int lastCount = Integer.parseInt(counts);
+			System.out.print(lastCount*(newCount)+"\t");
 			
-			System.out.print(lastCount*(i+2)+"\t");
-			
-			a = lastCount*(i+2)+a;
+			if(newCount > 8) {
+				newCount = 1;
+			}
+			newCount++;
+			total = lastCount*(newCount)+total;
 		}
-		System.out.println("총합 : "+a);
 		
-		int b = a % 11;
+
+		System.out.println("\n======================================================================================================");
+		System.out.println("총합 : "+total);
+		
+		int b = total % 11;
 		System.out.println("나머지 : "+ b);
 		
 		String names = nums.substring(12,13);
@@ -59,7 +65,6 @@ public class WrapperEx2 {
 			System.out.println("달라요.");
 		}
 
-		
 	}
 
 	
