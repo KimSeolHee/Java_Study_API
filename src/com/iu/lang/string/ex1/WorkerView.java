@@ -11,7 +11,6 @@ public class WorkerView {
 			System.out.println("직급: "+ workerDTO.getJob());
 			System.out.println("전화번호: "+ workerDTO.getPhone());
 		}
-		
 	}
 	
 }

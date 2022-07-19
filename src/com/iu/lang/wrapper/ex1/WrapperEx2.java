@@ -9,7 +9,7 @@ public class WrapperEx2 {
 	// 9   7   1   1  2  4 - 1  2  3  4  5  6 7
 	//*2   3   4   5  6  7   8  9  2  3  4  5 
 	//+18 21   4   5 12 28   8 18  6 12 20 30 체크용번호 
-	//총합: 192
+	//총합: 182
 	//총합을 11로 나누어서 나머지를 구함
 	//192  / 11로 나눈 몫17 나머지5
 	//나머지를 11에서 뺀 결과
@@ -22,24 +22,27 @@ public class WrapperEx2 {
 
 	public void juminCheck() {
 		
-		String num = "971124-1234562";//sc.next();	
+		System.out.println("주민번호를 입력하세요.");
+		String num = sc.next();
 		String nums = num.replace("-", "");
 		System.out.println(nums);
 		
 		int total = 0;
 		int newCount=2;
-		for(int i = 0;i<nums.length();i++) {
+		for(int i = 0;i<nums.length()-1;i++) {
 			
 			char count = nums.charAt(i);
 			String counts = String.valueOf(count);
 			int lastCount = Integer.parseInt(counts);
-			System.out.print(lastCount*(newCount)+"\t");
+			
+			int lastResult = lastCount*(newCount);
+			System.out.print(lastResult+"\t");
 			
 			if(newCount > 8) {
 				newCount = 1;
 			}
 			newCount++;
-			total = lastCount*(newCount)+total;
+			total = lastResult + total;
 		}
 		
 
@@ -59,6 +62,7 @@ public class WrapperEx2 {
 			minus = minus % 10;
 			System.out.println("minus의 나머지 : "+ minus);
 		}
+		
 		if(minus == c) {
 			System.out.println("같아요.");
 		}else {

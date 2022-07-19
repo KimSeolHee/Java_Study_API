@@ -39,7 +39,6 @@ public class WorkerService {
 			
 			workerDTOs[index] = workerDTO;
 			index++;
-			
 		}
 	
 		return workerDTOs;
