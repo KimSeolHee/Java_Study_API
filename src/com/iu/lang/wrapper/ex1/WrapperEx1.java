@@ -75,11 +75,13 @@ public class WrapperEx1 {
 	
 	String jumin ="971224-1234567";
 	private void age(String jumin) {
-		String year = jumin.substring(0,1);
+		String year = jumin.substring(0,2);
+		char ch = jumin.charAt(7); //1900,2000년도인지?
+		
 		System.out.println(year);
 	}
 	
-	private void season() {
+	private void season(String jumin) {
 //		String weather = jumin.substring(2, 4);
 //		int weathers = Integer.parseInt(weather);
 //		if(weathers >= 3 && weathers <= 5) {

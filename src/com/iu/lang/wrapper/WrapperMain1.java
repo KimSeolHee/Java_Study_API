@@ -48,8 +48,6 @@ public class WrapperMain1 {
 //		
 //		System.out.println(num+2);
 		
-	
-		
 
 	}
 
