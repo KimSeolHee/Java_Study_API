@@ -5,7 +5,15 @@ import java.util.Scanner;
 
 public class WeatherController {
 	
-	Scanner sc = new Scanner(System.in);
+	Scanner sc;
+	WeatherService service;
+	WeatherView view;
+	
+	public WeatherController() {
+		sc = new Scanner(System.in);
+		service = new WeatherService();
+		view = new WeatherView();
+	}
 	//WeatherController
 	//start메서드 하나
 	//1.번누르면 도시정보 초기화 - init메서드
@@ -18,18 +26,30 @@ public class WeatherController {
 	public void start() {
 		ArrayList<CityDTO> ar = new ArrayList<CityDTO>();
 		System.out.println("1.도시정보초기화 2.전국날씨 3.지역날씨검색 4.지역정보추가 5.도시정보삭제");
-//		String choice = sc.next();
+		int choice = sc.nextInt();
 		
-		WeatherService service = new WeatherService();
-		service.init(ar);
 		//1번
-		WeatherView view = new WeatherView();
-		view.view(ar);
+		if(choice == 1) {
+			service.init(ar);
+		}
 		
 		//2번
+		if(choice == 2) {
+			view.view(ar);
+		}
 		
 		//3번
+		if(choice == 3) {
+//			service.find();
+		}
 		
+		if(choice == 4) {
+			service.add(ar);
+		}
+		
+		if(choice == 5) {
+			service.remove(ar);
+		}
 	}
 
 }

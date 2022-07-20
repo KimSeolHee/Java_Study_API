@@ -13,20 +13,23 @@ public class WeatherView {
 	
 	public void view(ArrayList<CityDTO> ar) {
 		
-		for(CityDTO arr:ar) {
-			System.out.println("이름: "+ arr.getName());
-			System.out.println("기온: "+ arr.getGion());
-			System.out.println("?: "+ arr.getHum());
-			System.out.println("상태: "+ arr.getStatus());
+		for(int i = 0; i <ar.size();i++) {
+			//모든가방
+			CityDTO cityDTO = ar.get(i); //ex)인덱스0번 가방 1개 인덱스1번가방 1개 인덱스2번가방 1개 .... 리스트 크기만큼
+			
+			this.view(cityDTO);
 		}
 		
 	}
-	
-	public void view(String[] city) {
-		 
+	//가방하나
+	public void view(CityDTO cityDTO) {
+		 System.out.println(cityDTO.getName());
+		 System.out.println(cityDTO.getGion());
+		 System.out.println(cityDTO.getHum());
+		 System.out.println(cityDTO.getStatus());
 	}
 	
 	public void view(String messege) {
-		
+		System.out.println(messege);
 	}
 }
