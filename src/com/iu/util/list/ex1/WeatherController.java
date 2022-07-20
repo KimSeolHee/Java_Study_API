@@ -25,31 +25,31 @@ public class WeatherController {
 	
 	public void start() {
 		ArrayList<CityDTO> ar = new ArrayList<CityDTO>();
-		System.out.println("1.도시정보초기화 2.전국날씨 3.지역날씨검색 4.지역정보추가 5.도시정보삭제");
-		int choice = sc.nextInt();
+		boolean check = true;
 		
-		//1번
-		if(choice == 1) {
-			service.init(ar);
+		while(check) {
+			System.out.println("1.도시정보초기화 2.전국날씨 3.지역날씨검색 4.지역정보추가 5.도시정보삭제 6.종	료");
+			int choice = sc.nextInt();
+			
+			if(choice == 1) {
+				service.init(ar);
+			}else if(choice == 2) {
+				view.view(ar);
+			}else if(choice == 3) {
+//				service.find();
+			}else if(choice == 4) {
+				service.add(ar);
+			}else if(choice == 5) {
+				service.remove(ar);
+				//view.view(message)
+			}else {
+				System.out.println("프로그램 종료");
+				check = !check;
+				break;
+			}
+			
 		}
-		
-		//2번
-		if(choice == 2) {
-			view.view(ar);
-		}
-		
-		//3번
-		if(choice == 3) {
-//			service.find();
-		}
-		
-		if(choice == 4) {
-			service.add(ar);
-		}
-		
-		if(choice == 5) {
-			service.remove(ar);
-		}
+
 	}
 
 }
