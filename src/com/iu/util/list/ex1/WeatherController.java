@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class WeatherController {
 	
+	//결합도가 강하다(높다) : 자체에서 객체생성
+	//결합도가 느슨하다(낮다) : 매개변수를 통해서 만들어진 객체를 주입
+	//					: 생성자의 매개변수
+	
 	Scanner sc;
 	WeatherService service;
 	WeatherView view;
@@ -36,14 +40,37 @@ public class WeatherController {
 			}else if(choice == 2) {
 				view.view(ar);
 			}else if(choice == 3) {
-//				service.find();
+				CityDTO cityDTO = service.find(ar);
+				if(cityDTO != null) {
+					view.view(cityDTO);
+				}else {
+					view.view("검색한 도시가 없습니다.");
+				}
+				
+//				for(int i= 0;i<ar.size();i++) {
+//					if(cityDTO == ar.get(i)) {
+//						view.view(cityDTO);
+//					}
+//				}
+//				if(cityDTO ==null) {
+//					System.out.println("검색한 도시가 없습니다.");
+//				}
 			}else if(choice == 4) {
 				view.view("지역정보를 추가하세요.");
-				service.add(ar);
+				boolean result = service.add(ar);
+				String message = "추가 실패";
+				if(result) {
+					message="추가 성공";
+				}
+				view.view(message);
+				
 			}else if(choice == 5) {
-				view.view("제거할 도시를 입력하세요.");
-				service.remove(ar);
-				view.view("제거완료");
+				boolean result = service.remove(ar);
+				String message = "삭제 실패";
+				if(result) {
+					message="삭제 성공";
+				}
+				view.view(message);
 			}else {
 				view.view("프로그램 종료");
 				check = !check;

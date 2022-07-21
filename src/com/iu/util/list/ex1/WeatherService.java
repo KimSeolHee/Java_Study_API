@@ -35,11 +35,13 @@ public class WeatherService {
 	//sb에 있는 Data들을 파싱해서 cityDTO에 담아서 리턴
 	int index = 0;
 	public void init(ArrayList<CityDTO> ar) {
-		String str = sb.toString();
+		String str = sb.toString(); //StringBuffer타입은 String 타입과는 다르기 때문에 to.String으로 바꿔준다!
 		str = str.replace("-", ",");
 		
+		//String에서 split과 StringTokenizer에서 선택하는데 잘라서 여러개의 데이터가 하나의 데이터모음일 경우 tokenizer이 좋다!
 		StringTokenizer token = new StringTokenizer(str, ",");
 		
+		//토큰들을 자른 길이만큼 돌리는데 한묶음을 하나의 리스트 요소에 집어넣는다. 
 		while(token.hasMoreTokens()) {
 			CityDTO dto = new CityDTO();
 
@@ -52,7 +54,7 @@ public class WeatherService {
 		}
 	}
 	
-	public void add(ArrayList<CityDTO> ar) {
+	public boolean add(ArrayList<CityDTO> ar) {
 		CityDTO cityDTO = new CityDTO();
 		System.out.println("도시명입력");
 		cityDTO.setName(sc.next());
@@ -63,22 +65,28 @@ public class WeatherService {
 		System.out.println("상태입력");
 		cityDTO.setStatus(sc.next());
 		
-		ar.add(cityDTO);
+		return ar.add(cityDTO);
 	}
 	
 	//remove메서드
 	//도시명을 입력받아서 리스트에서 삭제
 	
-	public void remove(ArrayList<CityDTO> ar) {
+	public boolean remove(ArrayList<CityDTO> ar) {
 		CityDTO cityDTO = new CityDTO();
-		
-		String name = sc.next();//서울
+		System.out.println("삭제할 도시명을 입력하세요.");
+		String name = sc.next().toLowerCase();//서울
+		//문자열을 같다 틀리다 == 으로 하면 XXXXXX 문자열은 equals로 내용을 비교한다.
+		//ar.get(i).getName() >> ArrayList==ar에서 get(i)==CityDTO의 name을 삭제하자!
+		boolean r = false;
 		for(int i = 0;i < ar.size();i++) {
-			if(name.equals(ar.get(i).getName())) {
+			if(name.equals(ar.get(i).getName().toLowerCase())) {
 				ar.remove(i); //ar[i]의 요소를 삭제
+				r = !r;
 				break;
 			}
 		}
+		
+		return r;
 		
 		//향상된 for
 //		for(CityDTO cityDTO: ar) {
@@ -93,19 +101,29 @@ public class WeatherService {
 	//도시명을 입력받아서 리스트에서 검색 없을때도 없다고 리턴해주기
 	
 	public CityDTO find(ArrayList<CityDTO> ar) {
-		CityDTO cityDTO = new CityDTO();
+//		CityDTO cityDTO = new CityDTO();
 		System.out.println("도시를 검색하세요.");
-		String name = sc.next();
+		String name = sc.next().toLowerCase();
 		
-		CityDTO searchCity = null;
-		for(int i = 0;i<ar.size();i++) {
-			if(name.equals(ar.get(i).getName())) {
-				searchCity = ar.get(i);
-			} else {
-				System.out.println("없습니다.");
+		CityDTO cityDTO = null;
+		
+		//향상된 for
+		for(CityDTO city : ar) {
+			if(name.equals(city.getName().toLowerCase())) {
+				cityDTO = city;
+				break;
 			}
 		}
-		return searchCity;
+		
+//		for(int i = 0;i<ar.size();i++) {
+//			if(name.equals(ar.get(i).getName())) {
+//				cityDTO = ar.get(i);
+//			} else {
+//				System.out.println("없습니다.");
+//			}
+//		}
+		
+		return cityDTO;
 	}
 	
 	
