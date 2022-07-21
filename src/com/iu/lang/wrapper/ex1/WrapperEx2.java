@@ -58,7 +58,7 @@ public class WrapperEx2 {
 		
 		int minus = 11-b;
 		System.out.println("minus값 : "+minus);
-		if(minus > 10) {
+		if(minus > 9) {
 			minus = minus % 10;
 			System.out.println("minus의 나머지 : "+ minus);
 		}
