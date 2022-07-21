@@ -9,6 +9,19 @@ public class WeatherController {
 	//결합도가 느슨하다(낮다) : 매개변수를 통해서 만들어진 객체를 주입
 	//					: 생성자의 매개변수
 	
+//	ArrayList<>컬렉션은 Object만 모을수 있다.
+//  <>타입까지 같아야 넣을수있다. ar2 = ar1; XXX
+//	ArrayList<String> ar1 = new ArrayList<>();
+//	ArrayList<Integer> ar2;
+//	ar2 = ar1;
+	
+	//이론적으로는 가능함...
+//	ArrayList<ArrayList<String>> ars = new ArrayList<>();
+//	ArrayList<ArrayList<String>> ars2 = new ArrayList<>();
+//	ArrayList<ArrayList<ArrayList<String>>> all = new ArrayList<>(); 
+	
+	
+	
 	Scanner sc;
 	WeatherService service;
 	WeatherView view;
