@@ -23,10 +23,11 @@ public class WeatherView {
 	}
 	//가방하나
 	public void view(CityDTO cityDTO) {
-		 System.out.println(cityDTO.getName());
-		 System.out.println(cityDTO.getGion());
-		 System.out.println(cityDTO.getHum());
-		 System.out.println(cityDTO.getStatus());
+		 System.out.println("도시명 : " + cityDTO.getName());
+		 System.out.println("기온 : " + cityDTO.getGion());
+		 System.out.println("습도 : " + cityDTO.getHum());
+		 System.out.println("상태 : " + cityDTO.getStatus());
+		 System.out.println("===========================");
 	}
 	
 	public void view(String messege) {

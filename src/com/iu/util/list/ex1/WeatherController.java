@@ -38,12 +38,14 @@ public class WeatherController {
 			}else if(choice == 3) {
 //				service.find();
 			}else if(choice == 4) {
+				view.view("지역정보를 추가하세요.");
 				service.add(ar);
 			}else if(choice == 5) {
+				view.view("제거할 도시를 입력하세요.");
 				service.remove(ar);
-				//view.view(message)
+				view.view("제거완료");
 			}else {
-				System.out.println("프로그램 종료");
+				view.view("프로그램 종료");
 				check = !check;
 				break;
 			}

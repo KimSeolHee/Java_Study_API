@@ -71,7 +71,7 @@ public class WeatherService {
 	
 	public void remove(ArrayList<CityDTO> ar) {
 		CityDTO cityDTO = new CityDTO();
-		System.out.println("삭제할 도시명을 입력해주세요.");
+		
 		String name = sc.next();//서울
 		for(int i = 0;i < ar.size();i++) {
 			if(name.equals(ar.get(i).getName())) {
