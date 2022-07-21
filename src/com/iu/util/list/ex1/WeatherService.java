@@ -65,7 +65,7 @@ public class WeatherService {
 		System.out.println("상태입력");
 		cityDTO.setStatus(sc.next());
 		
-		return ar.add(cityDTO);
+		return ar.add(cityDTO); //boolean >> add(E e) : add에 객체를 넣으면 boolean값을 리턴해준다.
 	}
 	
 	//remove메서드
