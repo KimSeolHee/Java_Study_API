@@ -8,7 +8,7 @@ public class StringStudy3 {
 		String str = "설희, 혜림, 혜현, 형규";
 //		String str2 = new String("");
 		
-		String [] names = str.split(", ");
+		String [] names = str.split(", ");//
 		
 		//for → for(초기식;조건식;증감식){}
 		//향상된 for문 for(배열에모은데이터타입 변수명: 배열참조배열명){}
