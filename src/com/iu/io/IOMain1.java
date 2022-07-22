@@ -12,9 +12,10 @@ public class IOMain1 {
 		InputStream is = System.in; //byte를 처리한다.
 		InputStreamReader ir = new InputStreamReader(is);//한글자처리
 		BufferedReader br = new BufferedReader(ir);
+		System.out.println("키보드에서 입력 후 엔터");
+		String msg="";
 		try {
-			System.out.println("키보드에서 입력 후 엔터");
-			String msg = br.readLine();
+			msg = br.readLine();
 			System.out.println(msg);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
