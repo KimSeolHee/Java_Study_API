@@ -25,6 +25,27 @@ public class FileMain {
 		System.out.println(path.isFile());
 		System.out.println(path.isDirectory());
 		
+		file = new File("C:\\Study\\sub");
+		if(!file.exists()) {
+			file.mkdir();
+		}
+		File file2 = new File("C:\\Study\\sub2\\t1");
+//		file.mkdir(); 중간에 폴더가 없으면 생성X
+		file2.mkdirs();
+		
+//		file.delete();
+		
+		file2.delete();
+		File file3 = new File("C:\\Study\\sub2");
+		
+		//폴더를 지울땐 내부가 비어있어야 한다.
+		file3.delete();
+		
+		
+		
+		
+		
+		
 	}
 
 }
