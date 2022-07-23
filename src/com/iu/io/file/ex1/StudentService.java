@@ -17,20 +17,17 @@ public class StudentService implements Service {
 			double avg = total / 3;
 			r.setTotal(total);
 			r.setAvg(avg);
-			System.out.println("총점 : "+r.getTotal()+"점");
-			System.out.println("평균 : "+r.getAvg()+"점");
-			System.out.println("============");
-			
+			System.out.println(r.getTotal());
+			System.out.println(r.getAvg());
 		}	
 		return ar;
 	}
 
-	
+	//이거 안풀림
 	@Override
 	public int setList(ArrayList<StudentDTO> ar) throws Exception {
 		StudentDAO dao = new StudentDAO();
-		int result = dao.setList(ar);
-		
+		int result = dao.setList(getList());
 		return result;
 	}
 

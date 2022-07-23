@@ -31,11 +31,6 @@ public class StudentDAO {
 	
 	
 	
-	
-	
-	
-	
-	
 	public ArrayList<StudentDTO> getList() throws Exception {
 		ArrayList<StudentDTO> ar = new ArrayList<>();
 		//파일 읽어오기
