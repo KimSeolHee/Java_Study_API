@@ -62,6 +62,7 @@ public class StudentService implements Service {
 		int result = 0;
 		for(int i = 0;i<ar.size();i++) {
 			if(num == ar.get(i).getNum()) {
+				System.out.println("삭제 "+ar.get(i).getName()+" → "+ar.get(i).getNum()+"번");
 				ar.remove(i);
 				result = 1;
 				break;
@@ -90,6 +91,5 @@ public class StudentService implements Service {
 		
 		ar.add(dto);
 	}
-	
 
 }

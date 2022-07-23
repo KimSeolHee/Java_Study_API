@@ -56,9 +56,9 @@ public class StudentDAO {
 			
 			dto.setName(token.nextToken());
 			dto.setNum(Integer.parseInt(token.nextToken().trim()));
-			dto.setKor(Integer.parseInt(token.nextToken()));
-			dto.setEng(Integer.parseInt(token.nextToken()));
-			dto.setMath(Integer.parseInt(token.nextToken()));
+			dto.setKor(Integer.parseInt(token.nextToken().trim()));
+			dto.setEng(Integer.parseInt(token.nextToken().trim()));
+			dto.setMath(Integer.parseInt(token.nextToken().trim()));
 			
 			ar.add(dto);	
 		}
