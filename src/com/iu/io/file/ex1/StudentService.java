@@ -34,8 +34,7 @@ public class StudentService implements Service {
 		return result;
 	}
 
-	//학생한명을 찾는다.찾으려고 하는 학생의 번호를 입력받아서
-	//찾은 학생을 리턴
+	
 	@Override
 	public StudentDTO getStudent(ArrayList<StudentDTO> ar) throws Exception {
 		System.out.println("찾을 학생의 번호를 입력하세요!");
@@ -52,17 +51,44 @@ public class StudentService implements Service {
 		}		
 		return dto;
 	}
+	
 
 	@Override
 	public int setStudentDelete(ArrayList<StudentDTO> ar) throws Exception {
+		sc = new Scanner(System.in);
+		System.out.println("삭제 할 번호를 입력하세요.");
+		int num = sc.nextInt();
 		
-		return 0;
+		int result = 0;
+		for(int i = 0;i<ar.size();i++) {
+			if(num == ar.get(i).getNum()) {
+				ar.remove(i);
+				result = 1;
+				break;
+			}			
+		}
+		
+		return result;
 	}
+
 
 	@Override
 	public void setStudentAdd(ArrayList<StudentDTO> ar) throws Exception {
+		StudentDTO dto = new StudentDTO();
+		sc = new Scanner(System.in);
+		System.out.println("학생을 추가하세요.");
+		System.out.println("이름 입력");
+		dto.setName(sc.next());
+		System.out.println("번호 입력");
+		dto.setNum(sc.nextInt());
+		System.out.println("국어성적 입력");
+		dto.setKor(sc.nextInt());
+		System.out.println("영어성적 입력");
+		dto.setEng(sc.nextInt());
+		System.out.println("수학성적 입력");
+		dto.setMath(sc.nextInt());
 		
-		
+		ar.add(dto);
 	}
 	
 

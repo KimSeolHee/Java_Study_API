@@ -18,9 +18,11 @@ public class ExMain {
 		}
 		
 		StudentService service = new StudentService();
-		service.getList();
+//		service.getList();
+//		
+//		service.getStudent(dto);
 		
-		service.getStudent(dto);
+		service.setStudentAdd(dto);
 
 		
 	}
