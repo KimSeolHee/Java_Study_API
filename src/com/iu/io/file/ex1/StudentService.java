@@ -3,7 +3,6 @@ package com.iu.io.file.ex1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//서비스: 서비스 로직 입력
 public class StudentService implements Service {
 
 	Scanner sc;

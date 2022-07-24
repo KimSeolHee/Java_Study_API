@@ -49,7 +49,8 @@ public class StudentController {
 					view.view("없는 학생입니다.");
 				}
 			}else if(num == 5) {
-				view.view("백업해야함.........");
+				view.view(dto);
+				view.view("백업완료");
 			}else {
 				view.view("프로그램 종료");
 				check = !check;

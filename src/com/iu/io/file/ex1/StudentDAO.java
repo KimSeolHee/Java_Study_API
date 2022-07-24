@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -18,13 +19,24 @@ public class StudentDAO {
 	//가져와서 리턴
 	
 	//2. setList
+	//예외 처리는 내부에서 처리
+	//리스트로 받은 데이터들을 studentData에다가 작성한다.
+	//기존의 내용은 삭제
+	//작성형식은 기존 내용의 형식과 동일하게 
+	//1. 리턴 : 정상적인성공
+	//2. 리턴 : 예외가 발생했을경우
 	public int setList(ArrayList<StudentDTO> ar) {
-		//예외 처리는 내부에서 처리
-		//리스트로 받은 데이터들을 studentData에다가 작성한다.
-		//기존의 내용은 삭제
-		//작성형식은 기존 내용의 형식과 동일하게 
-		//1. 리턴 : 정상적인성공
-		//2. 리턴 : 예외가 발생했을경우
+		StudentService service = new StudentService();
+		File file = new File("C:\\Study\\studentData");
+		try {
+			FileWriter fw = new FileWriter(file,false);
+			fw.write("하이요\r\n메롱\t\n");
+			fw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return 0;
 	}
 	

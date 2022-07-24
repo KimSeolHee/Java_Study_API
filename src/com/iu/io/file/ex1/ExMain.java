@@ -9,6 +9,12 @@ public class ExMain {
 		StudentController controll = new StudentController();
 		controll.start();
 		
+		//DAO테스트
+//		StudentDAO dao = new StudentDAO();
+//		ArrayList<StudentDTO> dto = dao.getList();
+//
+//		dao.setList(dto);
+		
 	}
 
 }
