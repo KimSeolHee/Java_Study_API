@@ -27,7 +27,7 @@ public class StudentDAO {
 	//2. 리턴 : 예외가 발생했을경우
 	public int setList(ArrayList<StudentDTO> ar) {
 		StudentService service = new StudentService();
-		File file = new File("C:\\Study\\studentData");
+		File file = new File("C:\\Study\\studentData.txt");
 		try {
 			FileWriter fw = new FileWriter(file,false);
 			fw.write("하이요\r\n메롱\t\n");

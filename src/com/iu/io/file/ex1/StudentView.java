@@ -13,17 +13,21 @@ public class StudentView {
 		System.out.println(message);
 	}
 	
-	public void view(ArrayList<StudentDTO> dto) {
-		StudentDAO dao = new StudentDAO();
+	public void view(ArrayList<StudentDTO> ar) {
 		
-		for(StudentDTO d:dto) {
-			System.out.println("이름 : " + d.getName());
-			System.out.println("번호 : " + d.getNum() + "번");
-			System.out.println("국어성적 : " + d.getKor() + "점");
-			System.out.println("영어성적 : " + d.getEng() + "점");
-			System.out.println("수학성적 : " + d.getMath() + "점");
-			System.out.println("=================");
-		}
+		for(int i = 0; i < ar.size();i++) {
+			StudentDTO dto = ar.get(i);
+			this.view(dto);
+		}	
+		
+//		for(StudentDTO d:dto) {
+//			System.out.println("이름 : " + d.getName());
+//			System.out.println("번호 : " + d.getNum() + "번");
+//			System.out.println("국어성적 : " + d.getKor() + "점");
+//			System.out.println("영어성적 : " + d.getEng() + "점");
+//			System.out.println("수학성적 : " + d.getMath() + "점");
+//			System.out.println("=================");
+//		}
 	}
 
 	public void view(StudentDTO dto) {
@@ -32,6 +36,7 @@ public class StudentView {
 		System.out.println("국어성적 : " + dto.getKor() + "점");
 		System.out.println("영어성적 : " + dto.getEng() + "점");
 		System.out.println("수학성적 : " + dto.getMath() + "점");
+		System.out.println("===============");
 	}
 
 }
