@@ -81,7 +81,8 @@ public class StudentService implements Service {
 		dto.setEng(sc.nextInt());
 		System.out.println("수학성적 입력");
 		dto.setMath(sc.nextInt());
-		
+		dto.setTotal(dto.getKor()+dto.getEng()+dto.getMath());
+		dto.setAvg(dto.getTotal()/3.0);
 		
 		ar.add(dto);
 	}
