@@ -5,39 +5,36 @@ import java.util.Scanner;
 
 public class StudentService implements Service {
 
-	Scanner sc;
+	private StudentDAO dao;
+	private Scanner sc;
 	
+	public StudentService() {
+		this.dao = new StudentDAO();
+		this.sc = new Scanner(System.in);
+	}
 	@Override
 	public ArrayList<StudentDTO> getList() throws Exception {
-		StudentDAO dao = new StudentDAO();
 		ArrayList<StudentDTO> ar = dao.getList();
 		for(StudentDTO r : ar) {
 			int total = r.getKor()+r.getEng()+r.getMath();
-			double avg = total / 3;
+			double avg = total / 3.0;
 			r.setTotal(total);
 			r.setAvg(avg);
-			System.out.println(r.getTotal());
-			System.out.println(r.getAvg());
 		}	
 		return ar;
 	}
 
-	//이거 안풀림
 	@Override
 	public int setList(ArrayList<StudentDTO> ar) throws Exception {
-		StudentDAO dao = new StudentDAO();
-		int result = dao.setList(getList());
-		return result;
+		return dao.setList(ar);
 	}
 
 	
 	@Override
 	public StudentDTO getStudent(ArrayList<StudentDTO> ar) throws Exception {
 		System.out.println("찾을 학생의 번호를 입력하세요!");
-		sc = new Scanner(System.in);
 		int findNum = sc.nextInt();
-		StudentDTO dto = new StudentDTO();
-		dto = null;
+		StudentDTO dto = null;
 		for(int i = 0;i<ar.size();i++) {
 			int num = ar.get(i).getNum();
 			if(findNum == num) {
@@ -51,17 +48,18 @@ public class StudentService implements Service {
 
 	@Override
 	public int setStudentDelete(ArrayList<StudentDTO> ar) throws Exception {
-		sc = new Scanner(System.in);
-		System.out.println("삭제 할 번호를 입력하세요.");
+		System.out.println("삭제 할 학생번호를 입력하세요.");
 		int num = sc.nextInt();
 		
 		int result = 0;
 		for(int i = 0;i<ar.size();i++) {
 			if(num == ar.get(i).getNum()) {
 				System.out.println("삭제 "+ar.get(i).getName()+" → "+ar.get(i).getNum()+"번");
-				ar.remove(i);
-				result = 1;
-				break;
+				StudentDTO st = ar.remove(i);
+				if(st != null) {
+					result = 1;
+					break;
+				}
 			}			
 		}
 		
@@ -72,7 +70,6 @@ public class StudentService implements Service {
 	@Override
 	public void setStudentAdd(ArrayList<StudentDTO> ar) throws Exception {
 		StudentDTO dto = new StudentDTO();
-		sc = new Scanner(System.in);
 		System.out.println("학생을 추가하세요.");
 		System.out.println("이름 입력");
 		dto.setName(sc.next());
@@ -84,6 +81,7 @@ public class StudentService implements Service {
 		dto.setEng(sc.nextInt());
 		System.out.println("수학성적 입력");
 		dto.setMath(sc.nextInt());
+		
 		
 		ar.add(dto);
 	}

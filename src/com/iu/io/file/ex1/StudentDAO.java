@@ -28,16 +28,33 @@ public class StudentDAO {
 	public int setList(ArrayList<StudentDTO> ar) {
 		StudentService service = new StudentService();
 		File file = new File("C:\\Study\\studentData.txt");
+		FileWriter fw = null;
+		int result = 1;
 		try {
-			FileWriter fw = new FileWriter(file,false);
-			fw.write("하이요\r\n메롱\t\n");
+			fw = new FileWriter(file,false);
+			fw.write("\r\n");
+			for(StudentDTO dto : ar) {
+				StringBuffer stringBuffer = new StringBuffer();
+				stringBuffer.append(dto.getName());
+				stringBuffer.append(",");
+				stringBuffer.append(dto.getNum());
+				stringBuffer.append(",");
+				stringBuffer.append(dto.getKor());
+				stringBuffer.append(",");
+				stringBuffer.append(dto.getEng());
+				stringBuffer.append(",");
+				stringBuffer.append(dto.getMath());
+				stringBuffer.append("\r\n");
+				fw.write(stringBuffer.toString());
+			}
 			fw.flush();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			result = 0;
 		}
 		
-		return 0;
+		return result;
 	}
 	
 	
