@@ -20,19 +20,19 @@ public class StudentController {
 		Scanner sc = new Scanner(System.in);
 		StudentView view = new StudentView();
 		StudentService service = new StudentService();
+		ArrayList<StudentDTO> ar = new ArrayList<>();
 		
 		boolean check = true;
 		while(check) {
-			StudentDAO dao = new StudentDAO();
-			ArrayList<StudentDTO> dto = dao.getList();
 
 			System.out.println("1. 학생정보 출력  2. 학생정보 검색  3. 학생정보 추가  \n4. 학생정보 삭제  5. 백\t 업  6. 종\t료");
 			int num = sc.nextInt();
 			
 			if(num == 1) {
-				view.view(dto);
+				ar = service.getList();
+				view.view(ar);
 			}else if(num == 2) {
-				StudentDTO find = service.getStudent(dto);
+				StudentDTO find = service.getStudent(ar);
 				if(find != null) {
 					view.view("찾은 학생 정보 출력");
 					view.view(find);
@@ -40,17 +40,22 @@ public class StudentController {
 					view.view("없는 학생입니다.");
 				}
 			}else if(num == 3) {
-				service.setStudentAdd(dto);
+				service.setStudentAdd(ar);
 			}else if(num == 4) {
-				int result = service.setStudentDelete(dto);
+				int result = service.setStudentDelete(ar);
 				if(result == 1) {
 					view.view("삭제 성공");
 				}else {
 					view.view("없는 학생입니다.");
 				}
 			}else if(num == 5) {
-				view.view(dto);
-				view.view("백업완료");
+				int result = service.setList(ar);
+				if(result == 1) {
+					view.view(ar);
+					view.view("백업완료");
+				}else {
+					view.view("백업실패");
+				}
 			}else {
 				view.view("프로그램 종료");
 				check = !check;

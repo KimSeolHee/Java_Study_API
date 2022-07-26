@@ -36,6 +36,8 @@ public class StudentView {
 		System.out.println("국어성적 : " + dto.getKor() + "점");
 		System.out.println("영어성적 : " + dto.getEng() + "점");
 		System.out.println("수학성적 : " + dto.getMath() + "점");
+		System.out.println("총	점 : " + dto.getTotal() + "점");
+		System.out.println("평	균 : " + dto.getAvg() + "점");
 		System.out.println("===============");
 	}
 
